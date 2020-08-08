@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts :: header"> </head>
+
+<body>
+
+<nav th:replace="layouts :: navbar"></nav>
+	<div class="container">
+		<h3>Main Dashboard </h3>
+		<hr>
+	<h4>Current Clients</h4>
+		<div class="row">
+		<div class="col-md-6">
+
+		<table class = "table table-bordered table-striped">
+			<thead class="thead-light">
+				<tr>
+					<th style="background-color: #e6f7ff" scope="col">Client First Name</th>
+					<th style="background-color: #e6f7ff" scope="col">Client Age</th>
+					<th style="background-color: #e6f7ff"  scope="col">Client Gender</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aClient : ${clients}">
+					<td th:text="${aClient.firstName}" />
+					<td th:text="${aClient.age}" />
+					<td th:text="${aClient.gender}" />
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+
+	
+		<div class="col-md-4">
+		<canvas id="myBarChart" height="50"  width="50"></canvas>
+	</div>
+		</div>
+		</div>
+	
+	<div class="container">
+<h4>Current Employees</h4>
+	<div class="row">
+	<div class="col-md-6">
+		
+		<table class = "table table-bordered table-striped">
+			<thead class="thead-light">
+				<tr>
+					<th style="background-color: #d9b3ff" scope="col">Employee First Name</th>
+					<th style="background-color: #d9b3ff" scope="col">Employee Credential</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="anEmployee : ${employees}">
+					<td th:text="${anEmployee.firstName}" />
+					<td th:text="${anEmployee.credential}" />
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+	
+<script type="text/javascript" th:src="@{js/myChart.js}"></script>
+</body>

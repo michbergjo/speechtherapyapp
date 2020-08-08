@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts :: header">
+</head>
+
+<body>
+
+	<nav th:replace="layouts :: navbar"></nav>
+
+	<div class="container">
+		<h3>Employee Directory</h3>
+		<hr>
+
+		<!-- Add a new employee button -->
+		<a th:href="@{/employee/new}"
+			class="btn btn-primary btn-sm table-striped">New Employee</a>
+
+		<h4>Current Employees</h4>
+		<table class="table">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col">Employee First Name</th>
+					<th scope="col">Employee Credential</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="anEmployee : ${employees}">
+					<td th:text="${anEmployee.firstName}" />
+					<td th:text="${anEmployee.credential}" />
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>

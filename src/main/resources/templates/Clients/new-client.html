@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts :: header"> </head>
+
+
+<body>
+<nav th:replace="layouts :: navbar"></nav>
+	<div class="container">
+		<form action="/clients/save" th:object="${client}" method="POST">
+
+		<input type="text" placeholder="Client First Name" th:field="${client.firstName}"/> 
+		<input type="text" placeholder="Client Last Name" th:field="${client.lastName}"/> 
+		<input type="number" placeholder="Client Age" th:field="${client.age}"/>
+			
+			<select th:field="${client.gender}">
+				<option th:value="FEMALE"> Female </option>
+				<option th:value="MALE"> Male </option>
+				<option th:value="NORESPONSE"> NoResponse </option>
+			</select>
+			<br />
+			<br />
+
+		<button type="submit">Create New Client</button>
+		</form>
+	</div>
+
+
+</body>
+
+</html>
